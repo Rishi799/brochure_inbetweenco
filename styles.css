@@ -191,5 +191,13 @@ html.js .page.in { opacity: 1; transform: none; }
   box-shadow: 0 10px 26px rgba(0,0,0,.4);
 }
 .wa-float svg { width: 27px; height: 27px; }
-@media (max-width: 620px) { .wa-float { display: flex; } .bar .iconbtn--wa .lbl { display: none; } .bar .iconbtn--wa { padding: 0 12px; } }
-@media (max-width: 420px) { .bar__title span { display: none; } .iconbtn--dl .lbl { display: none; } .iconbtn--dl { padding: 0 12px; } }
+/* On phones: the top bar is not fixed — it scrolls away with the page —
+   and the page counter, PDF and WhatsApp controls are removed from it
+   (WhatsApp stays as the floating button; PDF stays in the end card). */
+@media (max-width: 620px) {
+  .wa-float { display: flex; }
+  .bar { position: static; }
+  .bar__right { display: none; }
+  .page { scroll-margin-top: 12px; }
+}
+@media (max-width: 420px) { .bar__title span { display: none; } }
